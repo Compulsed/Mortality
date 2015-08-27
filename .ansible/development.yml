@@ -1,0 +1,12 @@
+- hosts: all
+  vars:
+    #url_apt_key: "http://keyserver.ubuntu.com/pks/lookup?op=get&search="
+    #mongodb_repository: "deb http://downloads-distro.mongodb.org/repo/debian-sysvinit dist 10gen"
+  roles:
+    - role: 'andperez.mongodb'
+      sudo: true
+
+    - role: 'gotansible.nodejs'
+      sudo: true
+
+    - role: 'configure'

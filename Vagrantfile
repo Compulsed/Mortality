@@ -15,11 +15,17 @@ Vagrant.configure(2) do |config|
   config.vm.box = "ARTACK/debian-jessie"
   config.vm.box_url = "http://atlas.hashicorp.com/ARTACK/boxes/debian-jessie"
 
-  config.vm.network :public_network
+  # config.vm.network :public_network
 
   config.vm.provision "ansible" do |ansible|
-    ansible.playbook = "playbook.yml"
+    ansible.playbook = ".ansible/development.yml"
+    ansible.inventory_path = ".ansible/hosts"
+    ansible.raw_arguments = ENV['ANSIBLE_ARGS'];
+
+    ansible.verbose = 'vvvv'
   end
+
+  config.vm.hostname = "mortality"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -29,7 +35,10 @@ Vagrant.configure(2) do |config|
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
-  # config.vm.network "forwarded_port", guest: 80, host: 8080
+  config.vm.network "forwarded_port", guest: 80, host: 8080
+  config.vm.network "forwarded_port", guest: 9000, host: 9000
+  config.vm.network "forwarded_port", guest: 22, host: 8022, id: "ssh"
+
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.

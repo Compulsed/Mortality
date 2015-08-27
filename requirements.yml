@@ -1,0 +1,5 @@
+- src: https://github.com/andperez/ansible-role-mongodb
+  name: andperez.mongod
+- src: https://github.com/gotansible/nodejs
+  name: gotansible.nodejs 
+

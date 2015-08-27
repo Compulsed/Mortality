@@ -1,0 +1,26 @@
+---
+- name: 'Install Htop'
+  tags:
+    - 'apt'
+    - 'htop'
+  sudo: true
+  apt: name='htop' state='present'
+
+- name: 'Install Utilities'
+  tags:
+    - 'node'
+    - 'update'
+  sudo: true
+  shell: "npm install -g bower grunt-cli;"
+
+- name: 'Install dependencies'
+  tags:
+    - 'node'
+    - 'bower'
+  shell: "cd /vagrant; npm install && bower install"
+
+- name: 'Run Development'
+  tags:
+    - 'application'
+  sudo: true
+  service: name=mortality state=started
