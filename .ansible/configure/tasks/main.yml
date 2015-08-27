@@ -1,11 +1,4 @@
 ---
-- name: 'Install Htop'
-  tags:
-    - 'apt'
-    - 'htop'
-  sudo: true
-  apt: name='htop' state='present'
-
 - name: 'Install Utilities'
   tags:
     - 'node'
@@ -18,6 +11,10 @@
     - 'node'
     - 'bower'
   shell: "cd /vagrant; npm install && bower install"
+
+- name: 'Move Files'
+  sudo: true
+  shell: "cp /vagrant/.ansible/configure/templates/mortality.service /etc/systemd/system/mortality.service"
 
 - name: 'Run Development'
   tags:
