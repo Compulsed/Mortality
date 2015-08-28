@@ -6,7 +6,7 @@
 'use strict';
 
 var Thing = require('../api/thing/thing.model');
-
+var Mortality = require('../api/mortality/mortality.model');
 
 Thing.find({}).remove(function() {
   Thing.create({
@@ -27,5 +27,31 @@ Thing.find({}).remove(function() {
   },{
     name : 'Deployment Ready',
     info : 'Easily deploy your app to Heroku or Openshift with the heroku and openshift subgenerators'
+  });
+});
+
+// {
+//   dateAdded: Date,
+//   name: String,
+//   inputDate: Date
+//   daysAlive: Date
+// }
+
+Mortality.find({}).remove(function() {
+  Mortality.create({
+    dateAdded: new Date(),
+    name: "#1 Test Namee",
+    inputDate: new Date(),
+    daysAlive: 10000
+  },{
+    dateAdded: new Date(),
+    name: "#2 Test Namee",
+    inputDate: new Date(),
+    daysAlive: 10000
+  },{
+    dateAdded: new Date(),
+    name: "#3 Test Namee",
+    inputDate: new Date(),
+    daysAlive: 10000
   });
 });
