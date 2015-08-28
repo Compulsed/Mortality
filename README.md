@@ -10,7 +10,10 @@
 
 Most of the pre-requisists are available in the default Ubuntu repositories:
 
+```
 sudo apt-get install virtualbox vagrant
+```
+
 You need a recent version of Ansible (the Ansible package provided by Ubuntu is very old and does not support the debconf Ansible module). You can use pip (the Python package manager) to fetch the latest Ansible release:
 
 ```
