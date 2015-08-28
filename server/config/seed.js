@@ -36,7 +36,6 @@ Thing.find({}).remove(function() {
 //   inputDate: Date
 //   daysAlive: Date
 // }
-
 Mortality.find({}).remove(function() {
   Mortality.create({
     dateAdded: new Date(),
