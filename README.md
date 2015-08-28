@@ -4,7 +4,7 @@
 * Unix based Control Machine (Ansible Requirement)
 * Git
 * Ansible
-* Vagrant
+* Vagrant (+ Virtualbox)
 
 #### Ubuntu/Debian Pre-requisites
 
