@@ -16,6 +16,12 @@
   sudo: true
   shell: "cp /vagrant/.ansible/configure/templates/mortality.service /etc/systemd/system/mortality.service"
 
+- name: 'Data Migration Development'
+  shell: 'cd /vagrant/; node ./node_modules/mongodb-migrate -dbn mortality -runmm up'
+
+- name: 'Data Migration Development'
+  shell: 'cd /vagrant/; node ./node_modules/mongodb-migrate -dbn mortality-dev -runmm up'
+
 - name: 'Run Development'
   tags:
     - 'application'
