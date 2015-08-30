@@ -10,13 +10,13 @@
 
 Most of the pre-requisists are available in the default Ubuntu repositories:
 
-```bash
+```sh
 sudo apt-get install virtualbox vagrant
 ```
 
 You need a recent version of Ansible (the Ansible package provided by Ubuntu is very old and does not support the debconf Ansible module). You can use pip (the Python package manager) to fetch the latest Ansible release:
 
-```bash
+```sh
 sudo apt-get install python-pip
 sudo pip install ansible
 sudo ansible-galaxy install -r requirements.yml -f
@@ -33,13 +33,13 @@ A number of Ansible-Galaxy roles
 
 Installing the Pre-requisites requires Homebrew and Homebrew Cask, if you don't have these using your terminal run the following:
 
-```bash
+```sh
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew install caskroom/cask/brew-cask
 ```
 
 Installing the Pre-requisists:
-```bash
+```sh
 brew cask install virtualbox
 brew cask install vagrant
 brew install ansible
@@ -55,17 +55,17 @@ sudo ansible-galaxy install -r requirements.yml -f
 
 ## Migrating Database
 #### Creating new migration
-```bash
-node ./node_modules/mongodb-migrate -dbn mortality-dev -runmm create <migration name>
+```sh
+node ./node_modules/mongodb-migrate -runmm create <migration name>
 ```
 
 #### Upgrading the database
-```bash
+```sh
 node ./node_modules/mongodb-migrate -dbn mortality-dev -runmm up
 ```
 
 #### Downgrading the database
-```bash
+```sh
 node ./node_modules/mongodb-migrate -dbn mortality-dev -runmm down <version no or migration file>
 ```
 

@@ -7,6 +7,7 @@ var mongoose = require('mongoose'),
 var MortalitySchema = new Schema({
   dateAdded: Date,
   name: String,
+  lastName: String,
   inputDate: Date,
   daysAlive: Number
 });

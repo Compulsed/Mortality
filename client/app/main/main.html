@@ -18,8 +18,13 @@
 
       <form>
         <div class="form-group">
-          <label>Person Name</label>
+          <label>First Name</label>
           <input type="" class="form-control" id="name" ng-model="name">
+        </div>
+
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="" class="form-control" id="name" ng-model="lastName">
         </div>
 
         <div class="form-group">
@@ -46,15 +51,17 @@
                 <th>Name</th>
                 <th>Date of Birth</th>
                 <th>Days Alive</th>
+                <th>Martian Days</th>
                 <th>Date Added</th>
               </tr>
             </thead>
 
             <tbody>
               <tr ng-repeat="mortality in mortalityTimes">
-                <td>{{mortality.name}}</td>
+                <td>{{mortality.name}} {{mortality.lastName}}</td>
                 <td>{{mortality.toInputDate()}}</td>
                 <td>{{mortality.daysAlive}}</td>
+                <td>{{mortality.martianDays()}}</td>
                 <td>{{mortality.toDateAdded()}}</td>
               </tr>
             </tbody>

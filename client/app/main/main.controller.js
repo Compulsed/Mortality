@@ -2,6 +2,7 @@
 
 var Entry = function Entry (mortality) {
   this.name = mortality.name;
+  this.lastName = mortality.lastName;
   this.dateAdded = mortality.dateAdded;
   this.inputDate = mortality.inputDate;
   this.daysAlive = mortality.daysAlive;
@@ -13,6 +14,10 @@ Entry.prototype.toInputDate = function() {
 
 Entry.prototype.toDateAdded = function () {
   return moment(this.dateAdded).fromNow();
+}
+
+Entry.prototype.martianDays = function () {
+  return Math.floor(this.daysAlive / (687 / 365));
 }
 
 angular.module('mortalityApp')
@@ -30,7 +35,7 @@ angular.module('mortalityApp')
     });
 
     $scope.addThing = function() {
-      if($scope.name === '' || $scope.dateOfBirth === '') {
+      if($scope.name === '' || $scope.dateOfBirth === '' || $scope.lastName === '') {
         return;
       }
 
@@ -45,6 +50,7 @@ angular.module('mortalityApp')
         var newEntry = new Entry(
           {
               name: $scope.name,
+              lastName: $scope.lastName,
               dateAdded: currentDate,
               inputDate: enteredDate,
               daysAlive: daysAlive

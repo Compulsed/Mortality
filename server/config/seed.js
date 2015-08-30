@@ -39,18 +39,33 @@ Thing.find({}).remove(function() {
 Mortality.find({}).remove(function() {
   Mortality.create({
     dateAdded: new Date(),
-    name: "#1 Test Namee",
+    name: "#1 Test Name",
+    lastName: "#1 Last name",
     inputDate: new Date(),
     daysAlive: 10000
-  },{
+  }, {
     dateAdded: new Date(),
-    name: "#2 Test Namee",
+    name: "#2 Test Name",
+    lastName: "#2 Last name",
     inputDate: new Date(),
     daysAlive: 10000
-  },{
+  }, {
     dateAdded: new Date(),
-    name: "#3 Test Namee",
+    name: "#3 Test Name",
+    lastName: "#3 Last name",
     inputDate: new Date(),
     daysAlive: 10000
+  },
+  // Old Data that needs migrating
+  {
+    dateAdded: new Date(),
+    name: "#4 Old Name",
+    inputDate: new Date(),
+    daysAlive: 10000
+  }, {
+      dateAdded: new Date(),
+      name: "#5 Old Name",
+      inputDate: new Date(),
+      daysAlive: 10000
   });
 });
