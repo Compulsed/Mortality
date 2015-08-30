@@ -7,10 +7,12 @@ var Entry = function Entry (mortality) {
   this.daysAlive = mortality.daysAlive;
 }
 
-Entry.prototype.calculate = function() {
-  this.inputDate = moment(this.inputDate).format('MMMM Do YYYY');
+Entry.prototype.toInputDate = function() {
+  return moment(this.inputDate).format('MMMM Do YYYY');
+}
 
-  this.dateAdded = moment(this.dateAdded).fromNow();
+Entry.prototype.toDateAdded = function () {
+  return moment(this.dateAdded).fromNow();
 }
 
 angular.module('mortalityApp')
@@ -21,7 +23,6 @@ angular.module('mortalityApp')
     $http.get('/api/mortality').success(function(mortalityEntries) {
       mortalityEntries.forEach(function(mortalityEntry) {
           var entry = new Entry(mortalityEntry);
-          entry.calculate(); // Converts to a readable format
           $scope.mortalityTimes.push(entry);
       });
 
@@ -50,7 +51,6 @@ angular.module('mortalityApp')
           });
 
         $http.post('/api/mortality', newEntry).then(function(response){
-          newEntry.calculate();
           $scope.mortalityTimes.unshift(newEntry);
         });
 

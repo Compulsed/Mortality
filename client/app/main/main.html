@@ -53,9 +53,9 @@
             <tbody>
               <tr ng-repeat="mortality in mortalityTimes">
                 <td>{{mortality.name}}</td>
-                <td>{{mortality.inputDate}}</td>
+                <td>{{mortality.toInputDate()}}</td>
                 <td>{{mortality.daysAlive}}</td>
-                <td>{{mortality.dateAdded}}</td>
+                <td>{{mortality.toDateAdded()}}</td>
               </tr>
             </tbody>
 
@@ -65,14 +65,3 @@
     </div>
   </div>
 </div>
-
-
-
-<!-- <footer class="footer">
-  <div class="container">
-      <p>Angular Fullstack v2.1.1 |
-        <a href="https://twitter.com/tyhenkel">@tyhenkel</a> |
-         <a href="https://github.com/DaftMonk/generator-angular-fullstack/issues?state=open">Issues</a></p>
-  </div>
-</footer>
- -->

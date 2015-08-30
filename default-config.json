@@ -1,0 +1,10 @@
+{
+	"mortality" : {
+		"host" : "localhost",
+		"db"   : "mortality"
+	},
+	"mortality-dev" : {
+		"host" : "localhost",
+		"db"	 : "mortality-dev"
+	}
+}
