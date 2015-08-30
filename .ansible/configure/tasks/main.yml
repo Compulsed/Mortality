@@ -19,7 +19,7 @@
 - name: 'Data Migration Development'
   shell: 'cd /vagrant/; node ./node_modules/mongodb-migrate -dbn mortality -runmm up'
 
-- name: 'Data Migration Development'
+- name: 'Data Migration'
   shell: 'cd /vagrant/; node ./node_modules/mongodb-migrate -dbn mortality-dev -runmm up'
 
 - name: 'Run Development'
