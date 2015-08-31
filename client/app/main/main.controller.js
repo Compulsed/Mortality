@@ -70,6 +70,7 @@ angular.module('mortalityApp')
       // Reset input fields
       $scope.dateOfBirth = '';
       $scope.name = '';
+      $scope.lastName = '';
     };
 
   });
