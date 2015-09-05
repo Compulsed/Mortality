@@ -1,7 +1,9 @@
 {
 	"mortality" : {
-		"host" : "localhost",
-		"db"   : "mortality"
+		"host" : "dalesalter.net",
+		"db"   : "dale",
+    "username" : "dale",
+    "pass": "thegreatiam"
 	},
 	"mortality-dev" : {
 		"host" : "localhost",
