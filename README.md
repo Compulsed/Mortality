@@ -61,7 +61,7 @@ sudo ansible-galaxy install -r requirements.yml -f
 #### Pre-requisists
 - Heroku toolbelt installed
 - Node and NPM installed
-- Yeoman & Grunt cli `sudo npm install -g grunt-cli yo`
+- Yeoman & Grunt cli `sudo npm install -g grunt-cli yo bower`
 
 #### Installation
 0. Login to Heroku `heroku login`
