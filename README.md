@@ -60,7 +60,7 @@ sudo ansible-galaxy install -r requirements.yml -f
 ## Installation Heroku
 #### Pre-requisists
 - Heroku toolbelt installed
-- Node and NPM installed
+- Node and NPM installed [Latest](https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager?utm_source=%5Bdeliciuos%5D&utm_medium=twitter)
 - Yeoman & Grunt cli `sudo npm install -g grunt-cli yo bower`
 
 #### Installation
