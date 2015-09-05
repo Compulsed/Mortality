@@ -8,17 +8,21 @@
 
 #### Ubuntu/Debian Pre-requisites
 
-Most of the pre-requisists are available in the default Ubuntu repositories:
+Virtualbox is available in the default Ubuntu repositories:
 
 ```sh
-sudo apt-get install virtualbox vagrant
+sudo apt-get install virtualbox
 ```
 
-You need a recent version of Ansible (the Ansible package provided by Ubuntu is very old and does not support the debconf Ansible module). You can use pip (the Python package manager) to fetch the latest Ansible release:
+The latest version of Vagrant is available as a deb package at `http://www.vagrantup.com/downloads.html`
+
+You need a recent version of Ansible (the Ansible package provided by Ubuntu is very old and does not support the debconf Ansible module). You can use a ppa to install Ansible.
 
 ```sh
-sudo apt-get install python-pip
-sudo pip install ansible
+sudo apt-get install software-properties-common
+sudo apt-add-repository ppa:ansible/ansible
+sudo apt-get update
+sudo apt-get install ansible
 sudo ansible-galaxy install -r requirements.yml -f
 ```
 
