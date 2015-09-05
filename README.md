@@ -50,12 +50,29 @@ brew install ansible
 sudo ansible-galaxy install -r requirements.yml -f
 ```
 
-## Installation
-1. Clone this repo git `clone https://github.com/compulsed/mortality.git`
+## Installation - Ansible/Vagrant
+1. Clone this repo `git clone https://github.com/compulsed/mortality.git`
 2. Change to the repo root `cd mortality`
 3. Install Ansible Galaxy roles `sudo ansible-galaxy install -r requirements.yml -f`
 4. Start vagrant `vagrant up`
 5. View the site at `http://localhost:9000`
+
+## Installation Heroku
+#### Pre-requisists
+- Heroku toolbelt installed
+- Node and NPM installed
+- Yeoman & Grunt cli `sudo npm install -g grunt-cli yo`
+
+#### Installation
+0. Login to Heroku `heroku login`
+1. Clone this repo `git clone https://github.com/Compulsed/Mortality.git`
+2. Change into the repo `cd Mortality`
+3. Run `npm install && bower install`
+4. Run `grunt build --force`
+5. cd, `cd dist`
+6. Run `yo angular-fullstack:heroku`
+7. Run `heroku addons:create mongolab` to get mongo working
+
 
 ## Migrating Database
 #### Creating new migration
