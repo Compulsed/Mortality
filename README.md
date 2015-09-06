@@ -69,7 +69,7 @@ sudo ansible-galaxy install -r requirements.yml -f
 2. Change into the repo `cd Mortality`
 3. Run `npm install && bower install`
 4. Run `grunt build --force`
-5. cd, `cd dist`
+5. Run `cd dist`
 6. Run `yo angular-fullstack:heroku`
 7. Run `heroku addons:create mongolab` to get mongo working
 
