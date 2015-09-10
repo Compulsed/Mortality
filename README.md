@@ -68,11 +68,18 @@ sudo ansible-galaxy install -r requirements.yml -f
 1. Clone this repo `git clone https://github.com/Compulsed/Mortality.git`
 2. Change into the repo `cd Mortality`
 3. Run `npm install && bower install`
-4. Run `grunt build --force`
+4. Run `grunt build`, builds the application into the dist folder
 5. Run `cd dist`
-6. Run `yo angular-fullstack:heroku`
+6. Run `yo angular-fullstack:heroku` to create the application on heroku
 7. Run `heroku addons:create mongolab` to get mongo working
 
+Alternatively you can specify your own mongoDB `heroku config:set "MYMONGO_URI=$YOUR_MONGOURL"`
+
+#### Pushing Updates
+1. Change back into the root directory of the application
+2. Run `grunt build`, builds the application into the dist folder
+3. Commits and pushes the local build to heroku `grunt buildcontrol:heroku`
+4. Follow Migrate Database steps if there is a DB Migration
 
 ## Migrating Database
 #### Creating new migration
