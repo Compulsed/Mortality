@@ -3,10 +3,13 @@
     url_apt_key: "http://keyserver.ubuntu.com/pks/lookup?op=get&search="
     mongodb_repository: "deb http://downloads-distro.mongodb.org/repo/debian-sysvinit dist 10gen"
   roles:
-    - role: 'andperez.mongod'
+    - name: 'Install & Configure MongoDB'
+      role: 'andperez.mongod'
       sudo: true
 
-    - role: 'gotansible.nodejs'
+    - name: 'Install & Configure the latest NodeJS'
+      role: 'gotansible.nodejs'
       sudo: true
 
-    - role: 'configure'
+    - name: 'Install Application'
+      role: 'application'

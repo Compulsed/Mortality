@@ -1,0 +1,29 @@
+---
+- name: 'Install Utilities'
+  tags:
+    - 'node'
+    - 'update'
+  sudo: true
+  shell: "npm install -g bower grunt-cli;"
+
+- name: 'Install dependencies'
+  tags:
+    - 'node'
+    - 'bower'
+  shell: "cd /vagrant; npm install && bower install"
+
+- name: 'Move Files'
+  sudo: true
+  shell: "cp /vagrant/.ansible/configure/templates/mortality.service /etc/systemd/system/mortality.service"
+
+- name: 'Data Migration Development'
+  shell: 'cd /vagrant/; node ./node_modules/mongodb-migrate -dbn mortality -runmm up'
+
+- name: 'Data Migration'
+  shell: 'cd /vagrant/; node ./node_modules/mongodb-migrate -dbn mortality-dev -runmm up'
+
+- name: 'Run Development'
+  tags:
+    - 'application'
+  sudo: true
+  service: name=mortality state=started
