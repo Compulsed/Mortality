@@ -1,0 +1,44 @@
+---
+- name: 'Install Grunt'
+  sudo: true
+  npm:
+    global: yes
+    name: grunt-cli
+
+- name: 'Install Bower'
+  sudo: true
+  npm:
+    global: yes
+    name: bower
+
+- name: 'Install Bower'
+  sudo: true
+  npm:
+    global: yes
+    name: yo
+
+- name: 'Install Application Dependencies'
+  npm:
+   path: "{{ app_path }}"
+
+- name: 'Install Application Dependencies'
+  bower:
+    path: "{{ app_path }}"
+
+- name: 'Move Files'
+  sudo: true
+  copy:
+    src: "application/templates/mortality.service"
+    dest: "/etc/systemd/system/mortality.service"
+    owner: "root"
+    group: "root"
+    mode: "755"
+
+- name: "Data Migration"
+  shell: "cd {{ app_path }} && node ./node_modules/mongodb-migrate -dbn {{ database_config }} -runmm up"
+
+- name: 'Run Development'
+  tags:
+    - 'application'
+  sudo: true
+  service: name=mortality state=started

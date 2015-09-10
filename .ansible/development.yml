@@ -2,6 +2,12 @@
   vars:
     url_apt_key: "http://keyserver.ubuntu.com/pks/lookup?op=get&search="
     mongodb_repository: "deb http://downloads-distro.mongodb.org/repo/debian-sysvinit dist 10gen"
+
+    # Replace these with 'export ANSIBLE_ARGS="-e database_config=mortality"; vagrant provision'
+    #   Specific database file is contained within the 'default-config.json' file and
+    #   the specific object name should be selected
+    app_path: "/vagrant/"
+    database_config: "mortality-dev"
   roles:
     - role: 'andperez.mongod'
       sudo: true
@@ -9,4 +15,5 @@
     - role: 'gotansible.nodejs'
       sudo: true
 
-    - role: 'configure'
+    - name: 'Installing Application'
+      role: 'application'

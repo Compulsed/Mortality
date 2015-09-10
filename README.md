@@ -3,12 +3,13 @@
 ## Requirements
 * Unix based Control Machine (Ansible Requirement)
 * Git
-* Ansible
-* Vagrant (+ Virtualbox)
+* Ansible (Latest: 1.9.3+)
+* Vagrant (Latest: 1.7.2+)
+* Virtualbox
+* Node and NPM installed [Latest](https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager?utm_source=%5Bdeliciuos%5D&utm_medium=twitter)
 
 #### Ubuntu/Debian Pre-requisites
-
-Virtualbox is available in the default Ubuntu repositories:
+Virtualbox is available in the default Debian repositories:
 
 ```sh
 sudo apt-get install virtualbox
@@ -27,7 +28,6 @@ sudo ansible-galaxy install -r requirements.yml -f
 ```
 
 #### OSX Pre-requisites
-
 In order to test you must have the following installed:
 
 Vagrant
@@ -56,11 +56,15 @@ sudo ansible-galaxy install -r requirements.yml -f
 3. Install Ansible Galaxy roles `sudo ansible-galaxy install -r requirements.yml -f`
 4. Start vagrant `vagrant up`
 5. View the site at `http://localhost:9000`
+6. OSX: "open http://localhost:9000" or Linux: "xdg-open http://localhost:9000"
+7. To migrate or upgrade the database, run the following `export ANSIBLE_ARGS="-e database_config=mortality"; vagrant reload --provision`
+
+Note: export ANSIBLE_ARGS="-e database_config=<object name>"; vagrant provision  
+  replace <object name> with the configuration of the mongo database within default-config.json
 
 ## Installation Heroku
 #### Pre-requisists
 - Heroku toolbelt installed
-- Node and NPM installed [Latest](https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager?utm_source=%5Bdeliciuos%5D&utm_medium=twitter)
 - Yeoman & Grunt cli `sudo npm install -g grunt-cli yo bower generator-angular-fullstack`
 
 #### Installation
